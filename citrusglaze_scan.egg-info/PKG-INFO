@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: citrusglaze-scan
-Version: 0.1.2
+Version: 0.1.3
 Summary: Scan AI chat histories for leaked secrets. Find out what you've accidentally shared with AI providers.
 Author-email: CitrusGlaze <hello@citrusglaze.dev>
 License: MIT

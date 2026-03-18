@@ -174,7 +174,8 @@ def print_summary(full_result: FullScanResult, days: int):
     print(f"     training data. Samsung banned AI tools company-wide.{Colors.RESET}")
     print(f"   {Colors.DIM}\u2022 An AWS key leaked through a Copilot prompt led to a $28K bill overnight")
     print(f"     from cryptomining. The developer was let go.{Colors.RESET}")
-    print(f"   {Colors.DIM}\u2022 AI providers can log, train on, or be compelled to hand over your prompts.{Colors.RESET}")
+    print(f"   {Colors.DIM}\u2022 Under AWS shared responsibility, SOC 2, and GDPR — you are legally liable")
+    print(f"     for what your AI agents send. Not the provider. You.{Colors.RESET}")
     print()
     print(f"   {Colors.BOLD}Stop it before it happens:{Colors.RESET}")
     print(f"   {Colors.BOLD}{Colors.CYAN}https://citrusglaze.dev{Colors.RESET} — local proxy that blocks secrets from reaching AI")
@@ -220,7 +221,7 @@ def format_json(full_result: FullScanResult, days: int) -> str:
     """Format results as JSON."""
     output = {
         "scanner": "citrusglaze-scan",
-        "version": "0.1.2",
+        "version": "0.1.3",
         "scan_period_days": days,
         "total_secrets": full_result.total_secrets,
         "by_severity": {
