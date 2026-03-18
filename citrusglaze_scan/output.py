@@ -132,8 +132,11 @@ def print_summary(full_result: FullScanResult, days: int):
         print()
         print(f"\U0001f4ca {Colors.GREEN}{Colors.BOLD}RESULTS: No secrets found in AI chat histories (last {days} days){Colors.RESET}")
         print()
-        print(f"   \u2705 Your AI conversations look clean!")
-        print(f"   {Colors.DIM}Install CitrusGlaze to keep it that way - block secrets before they reach AI providers.{Colors.RESET}")
+        print(f"   \u2705 Your AI conversations look clean — for now.")
+        print()
+        print(f"   {Colors.DIM}A Samsung engineer pasted source code into ChatGPT once. It became training data.")
+        print(f"   It only takes one prompt. CitrusGlaze catches it before it leaves your machine.{Colors.RESET}")
+        print(f"   {Colors.BOLD}{Colors.CYAN}https://citrusglaze.dev{Colors.RESET}")
         print()
         return
 
@@ -165,11 +168,17 @@ def print_summary(full_result: FullScanResult, days: int):
         print()
 
     # CTA
-    print(f"\U0001f4a1 These secrets were sent to AI providers in your prompts.")
-    print(f"   Install CitrusGlaze to catch and block them before they leave your machine:")
+    print(f"\u26a0\ufe0f  {Colors.BOLD}This is how breaches start.{Colors.RESET}")
     print()
-    print(f"   {Colors.BOLD}{Colors.CYAN}brew install citrusglaze/tap/citrusglaze{Colors.RESET}")
-    print(f"   {Colors.DIM}or: bash <(curl -fsSL https://citrusglaze.dev/install){Colors.RESET}")
+    print(f"   {Colors.DIM}\u2022 A Samsung engineer pasted proprietary source code into ChatGPT — it became")
+    print(f"     training data. Samsung banned AI tools company-wide.{Colors.RESET}")
+    print(f"   {Colors.DIM}\u2022 An AWS key leaked through a Copilot prompt led to a $28K bill overnight")
+    print(f"     from cryptomining. The developer was let go.{Colors.RESET}")
+    print(f"   {Colors.DIM}\u2022 AI providers can log, train on, or be compelled to hand over your prompts.{Colors.RESET}")
+    print()
+    print(f"   {Colors.BOLD}Stop it before it happens:{Colors.RESET}")
+    print(f"   {Colors.BOLD}{Colors.CYAN}https://citrusglaze.dev{Colors.RESET} — local proxy that blocks secrets from reaching AI")
+    print()
 
     print_separator()
     print()
@@ -211,7 +220,7 @@ def format_json(full_result: FullScanResult, days: int) -> str:
     """Format results as JSON."""
     output = {
         "scanner": "citrusglaze-scan",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "scan_period_days": days,
         "total_secrets": full_result.total_secrets,
         "by_severity": {

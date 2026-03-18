@@ -1,0 +1,2 @@
+[console_scripts]
+citrusglaze-scan = citrusglaze_scan.cli:entry_point
