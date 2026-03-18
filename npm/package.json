@@ -1,0 +1,19 @@
+{
+  "name": "citrusglaze-scan",
+  "version": "0.1.1",
+  "description": "Scan AI chat histories for leaked secrets. 200+ patterns. Zero deps. 100% local.",
+  "bin": {
+    "citrusglaze-scan": "bin/citrusglaze-scan.mjs"
+  },
+  "keywords": ["security", "secrets", "ai", "llm", "scanner", "leak-detection"],
+  "license": "MIT",
+  "author": "CitrusGlaze <hello@citrusglaze.dev>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/citrusglaze/citrusglaze-scan"
+  },
+  "homepage": "https://citrusglaze.dev",
+  "engines": {
+    "node": ">=16"
+  }
+}
