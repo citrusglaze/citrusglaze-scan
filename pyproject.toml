@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "citrusglaze-scan"
-version = "0.1.0"
+version = "0.1.1"
 description = "Scan AI chat histories for leaked secrets. Find out what you've accidentally shared with AI providers."
 readme = "README.md"
 license = {text = "MIT"}
@@ -33,10 +33,10 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://citrusglaze.dev/go/pypi"
-Repository = "https://github.com/pierretokns/citrusglaze"
+Repository = "https://github.com/citrusglaze/citrusglaze-scan"
 "State of AI Traffic Report" = "https://citrusglaze.dev/go/report"
 "Full Product" = "https://citrusglaze.dev/go/pypi"
-Issues = "https://github.com/pierretokns/citrusglaze/issues"
+Issues = "https://github.com/citrusglaze/citrusglaze-scan/issues"
 
 [project.scripts]
 citrusglaze-scan = "citrusglaze_scan.cli:entry_point"

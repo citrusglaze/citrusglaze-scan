@@ -211,7 +211,7 @@ def format_json(full_result: FullScanResult, days: int) -> str:
     """Format results as JSON."""
     output = {
         "scanner": "citrusglaze-scan",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "scan_period_days": days,
         "total_secrets": full_result.total_secrets,
         "by_severity": {
