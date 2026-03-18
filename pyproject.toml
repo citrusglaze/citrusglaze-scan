@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "citrusglaze-scan"
+version = "0.1.0"
+description = "Scan AI chat histories for leaked secrets. Find out what you've accidentally shared with AI providers."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "CitrusGlaze", email = "hello@citrusglaze.dev"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+keywords = ["security", "secrets", "ai", "llm", "scanner", "leak-detection"]
+
+# Zero external dependencies - stdlib only
+dependencies = []
+
+[project.urls]
+Homepage = "https://citrusglaze.dev/go/pypi"
+Repository = "https://github.com/pierretokns/citrusglaze"
+"State of AI Traffic Report" = "https://citrusglaze.dev/go/report"
+"Full Product" = "https://citrusglaze.dev/go/pypi"
+Issues = "https://github.com/pierretokns/citrusglaze/issues"
+
+[project.scripts]
+citrusglaze-scan = "citrusglaze_scan.cli:entry_point"
+
+[tool.setuptools.packages.find]
+include = ["citrusglaze_scan*"]
