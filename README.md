@@ -9,8 +9,14 @@ We scanned one developer's AI chat history. **169 secrets in 30 days.** AWS keys
 ## Install & Run
 
 ```bash
-pip install citrusglaze-scan
-citrusglaze-scan
+pip3 install citrusglaze-scan
+python3 -m citrusglaze_scan
+```
+
+Or with [pipx](https://pipx.pypa.io/) (no install needed):
+
+```bash
+pipx run citrusglaze-scan
 ```
 
 That's it. Results in 15 seconds.
@@ -40,13 +46,13 @@ That's it. Results in 15 seconds.
 ## CLI Options
 
 ```bash
-citrusglaze-scan                      # All tools, last 30 days
-citrusglaze-scan --tool claude        # Only Claude Code
-citrusglaze-scan --days 7             # Last 7 days
-citrusglaze-scan --days 0             # All time
-citrusglaze-scan --json               # Machine-readable output
-citrusglaze-scan --verbose            # Show file paths
-citrusglaze-scan --path /some/dir     # Scan any directory
+python3 -m citrusglaze_scan                      # All tools, last 30 days
+python3 -m citrusglaze_scan --tool claude        # Only Claude Code
+python3 -m citrusglaze_scan --days 7             # Last 7 days
+python3 -m citrusglaze_scan --days 0             # All time
+python3 -m citrusglaze_scan --json               # Machine-readable output
+python3 -m citrusglaze_scan --verbose            # Show file paths
+python3 -m citrusglaze_scan --path /some/dir     # Scan any directory
 ```
 
 ## Privacy
