@@ -254,13 +254,15 @@ def format_json(full_result: FullScanResult, days: int) -> str:
 
 
 def print_full_report(full_result: FullScanResult, days: int,
-                       json_output: bool = False, verbose: bool = False):
+                       json_output: bool = False, verbose: bool = False,
+                       skip_header: bool = False):
     """Print the complete scan report."""
     if json_output:
         print(format_json(full_result, days))
         return
 
-    print_header()
+    if not skip_header:
+        print_header()
 
     for result in full_result.results:
         print_source_result(result)

@@ -76,12 +76,43 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _spinner(stop_event, message="Scanning"):
+    """Show a simple spinner while scanning."""
+    import threading
+    frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+    i = 0
+    while not stop_event.is_set():
+        sys.stderr.write(f"\r  {frames[i % len(frames)]} {message}...")
+        sys.stderr.flush()
+        stop_event.wait(0.08)
+        i += 1
+    sys.stderr.write("\r" + " " * (len(message) + 10) + "\r")
+    sys.stderr.flush()
+
+
 def main(argv: Optional[list[str]] = None) -> int:
     """Main entry point for the CLI."""
+    import threading
+
     parser = build_parser()
     args = parser.parse_args(argv)
 
+    # Show banner immediately (unless JSON mode)
+    if not args.json_output:
+        from .output import print_header
+        print_header()
+
     start_time = time.time()
+
+    # Start spinner
+    stop_spinner = threading.Event()
+    spinner_thread = None
+    if not args.json_output and sys.stderr.isatty():
+        spinner_thread = threading.Thread(
+            target=_spinner, args=(stop_spinner, "Scanning AI chat histories"),
+            daemon=True,
+        )
+        spinner_thread.start()
 
     if args.path:
         # Scan a specific directory
@@ -93,12 +124,18 @@ def main(argv: Optional[list[str]] = None) -> int:
     # Run the scan
     full_result = scan_all(sources)
 
-    # Output results
+    # Stop spinner
+    if spinner_thread:
+        stop_spinner.set()
+        spinner_thread.join()
+
+    # Output results (skip header since we already printed it)
     print_full_report(
         full_result,
         days=args.days,
         json_output=args.json_output,
         verbose=args.verbose,
+        skip_header=True,
     )
 
     elapsed = time.time() - start_time
